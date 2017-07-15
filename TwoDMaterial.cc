@@ -82,13 +82,32 @@ PhaseAttributes & TwoDMaterial::operator++()
     //larger dynamic array and deallocate the old array
     //Insert your code here.
 
+    ////
     // TODO: Create the new array.
+    // eg PhaseAttributes * newArr = new PhaseAttributes[old_size + 1];
 
+
+
+    ////
     // TODO: Copy the old array into the new one.
-    // TODO: See if you have copy over all the elements in an array in C++. My gut intuition is yes...
+    // IF you have used memcpy:
+    // e.g. memcpy(oldArr, newArr, old_size);
 
+    // IF NOT, then Im sure there is a better C++ way to do that.
+    // TODO: Lookup std::copy or std::copy_n.
+
+    // IF std::copy or std::copy_n DOES NOT work for you, you can be lazy and copy over 
+    // the new values with a loop.
+
+    // for(int i = 0; i < oldSize; i++)
+    // {
+    //    newArray[i] = oldArray[i];
+    // }
+
+
+    ////
     // TODO: Delete the old array.
-
+    // e.g. delete oldArray[];
 
 
     //This array will need to return  
@@ -153,7 +172,7 @@ void TwoDMaterial::operator+=(PhaseAttributes attValue)
 //----------------------------------------
 float & TwoDMaterial::operator()(int x, int y)
 {
-  int numCols = 
+  int numCols = ...; // Get the number of rows however.
   int index = decodeIndex(x, y);
 
 

@@ -17,6 +17,10 @@ class TwoDMaterial
 
     //ADD HERE: I would like for you to add an assignment operator prototype
 
+    // TODO: Assignment operator prototype here...
+
+    TwoDMaterial & operator=();
+
     //public member functions need by client
     void extractStatistics();
     void createMixNanocomposite();
@@ -27,6 +31,9 @@ class TwoDMaterial
     int getHeight() const; 
     //ADD HERE: complete the set of getter functions  
     
+    float * getMatArray();
+    PhaseAttributes & getAttribArray();
+    int getNumPhase();
     
     
     //setters

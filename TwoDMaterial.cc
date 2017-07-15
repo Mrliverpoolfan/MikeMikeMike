@@ -5,6 +5,24 @@
 
 using namespace std;
 
+// decodeIndex
+//
+// We want to take the row/col index of a matrix and map
+// it to a single index of an array. We will be reusing this
+// code multiple places, so its good to have it in a function.
+//
+int decodeIndex(int numCols, int rowIndex, int colIndex)
+{
+
+  // TODO: See this page for some basic math/explanation.
+  // https://stackoverflow.com/questions/14015556/how-to-map-the-indexes-of-a-matrix-to-a-1-dimensional-array-c
+
+  // i*m + j 
+
+  return ((numCols*rowIndex) + colIndex);
+}
+
+
 //----------------------------------------
 //ADD HERE: Make a constructor with two arguments that sets the width and height
 // of the 2D material to be created
@@ -12,7 +30,7 @@ using namespace std;
 TwoDMaterial::TwoDMaterial(int width, int height)
 {
 
-   this->width = width;
+   this->width  = width;
    this->height = height;
 
    //You must add the rest of the code
@@ -26,7 +44,9 @@ TwoDMaterial::TwoDMaterial(int width, int height)
 //----------------------------------------
 TwoDMaterial::~TwoDMaterial()
 {
-  //You must add code here
+
+  // Deallocate the phase attributes element.
+  // Ie delete ....
 
 
 }
@@ -62,6 +82,12 @@ PhaseAttributes & TwoDMaterial::operator++()
     //larger dynamic array and deallocate the old array
     //Insert your code here.
 
+    // TODO: Create the new array.
+
+    // TODO: Copy the old array into the new one.
+    // TODO: See if you have copy over all the elements in an array in C++. My gut intuition is yes...
+
+    // TODO: Delete the old array.
 
 
 
@@ -113,6 +139,10 @@ void TwoDMaterial::operator+=(PhaseAttributes attValue)
 {
    //You will need to add code here
 
+    // First add an element to the dynamic array. 
+    this++; // Note, I dont know if C++ will accept this notation.
+
+    // Next fill the newest element with the attValue.
 
 }
 
@@ -123,6 +153,8 @@ void TwoDMaterial::operator+=(PhaseAttributes attValue)
 //----------------------------------------
 float & TwoDMaterial::operator()(int x, int y)
 {
+  int numCols = 
+  int index = decodeIndex(x, y);
 
 
 }

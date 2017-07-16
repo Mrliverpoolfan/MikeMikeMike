@@ -45,8 +45,8 @@ TwoDMaterial::TwoDMaterial(int width, int height)
 TwoDMaterial::~TwoDMaterial()
 {
 
-  // Deallocate the phase attributes element.
-  // Ie delete ....
+ 	delete[] PhaseAttributes; // Deallocate the phase attributes element.
+  				  // Ie delete ....
 
 
 }
@@ -54,8 +54,10 @@ TwoDMaterial::~TwoDMaterial()
 //----------------------------------------
 //ADD HERE: Make your own copy constructor
 //----------------------------------------
-
-
+TwoDMaterial(const TwoDMaterial &tDM)
+{
+	
+}
 
 
 
@@ -65,6 +67,11 @@ TwoDMaterial::~TwoDMaterial()
 //ADD HERE: Make your own assignment operator 
 //----------------------------------------
 
+void operator =(const PhaseAttributes &pA)
+{
+	permittivity = pA.permittivity;
+	volumetricFraction = pA.volumetricFraction;
+}
 
 
 
@@ -76,7 +83,7 @@ TwoDMaterial::~TwoDMaterial()
 //This function will also return a reference to the newly
 //added element at the END of the array
 //----------------------------------------
-PhaseAttributes & TwoDMaterial::operator++()
+PhaseAttributes & TwoDMaterial::operator++() //MIKE: Does this mean the operator is being overloaded for multiple classes?
 {
     //remember that you will need to create a new 
     //larger dynamic array and deallocate the old array
@@ -85,26 +92,29 @@ PhaseAttributes & TwoDMaterial::operator++()
     ////
     // TODO: Create the new array.
     // eg PhaseAttributes * newArr = new PhaseAttributes[old_size + 1];
-
-
+	PhaseAttributes * newArr = new PhaseAttributes[old_size +1]; //MIKE: I'm just going to use your examples for the sake of time.
+	
 
     ////
     // TODO: Copy the old array into the new one.
     // IF you have used memcpy:
     // e.g. memcpy(oldArr, newArr, old_size);
-
+	memcpy(oldArr, newArr, old_size);
     // IF NOT, then Im sure there is a better C++ way to do that.
     // TODO: Lookup std::copy or std::copy_n.
-
+	
     // IF std::copy or std::copy_n DOES NOT work for you, you can be lazy and copy over 
     // the new values with a loop.
-
+	for(int i = 0; i < oldSize; i++)
+       {
+          newArray[i] = oldArray[i];
+       }
     // for(int i = 0; i < oldSize; i++)
     // {
     //    newArray[i] = oldArray[i];
     // }
 
-
+	delete oldArray[];
     ////
     // TODO: Delete the old array.
     // e.g. delete oldArray[];

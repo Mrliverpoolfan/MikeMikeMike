@@ -1,5 +1,6 @@
 #include <iostream>
-
+#ifndef PHASEATTR.H	
+#define PHASEATTR.H
 // TODO: Add header guards here to prevent multiple inclusions.
 
 class PhaseAttributes

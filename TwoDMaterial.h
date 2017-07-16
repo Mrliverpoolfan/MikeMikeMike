@@ -8,7 +8,9 @@ class TwoDMaterial
     TwoDMaterial(int=100, int=100);
     ~TwoDMaterial();
     //ADD HERE: I would like for you to add a copy constructor prototype
- 
+  
+    TwoDMaterial(const TwoDMaterial);
+    
     //operator overloads that can be used by client
     void operator+=(PhaseAttributes); //add phase to composite
     TwoDMaterial & operator!(); //This will randomize the material array

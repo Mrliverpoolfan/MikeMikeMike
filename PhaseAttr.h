@@ -1,5 +1,6 @@
 #include <iostream>
-
+#ifndef "TWODMATERIAL.H"
+#define "TWODMATERIAL.H"
 // TODO: Add header guards here to prevent multiple inclusions.
 
 class PhaseAttributes
